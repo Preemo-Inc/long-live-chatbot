@@ -1,0 +1,73 @@
+[tool.poetry]
+name = "long-live-chatbot"
+version = "0.0.1"
+description = ""
+authors = [
+  "Bo Yang <bo@gradient.ai>",
+]
+homepage = "https://github.com/Preemo-Inc/long-live-chatbot"
+repository = "https://github.com/Preemo-Inc/long-live-chatbot"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+pydantic = "^1.10.6"
+python = "^3.10.2"
+requests = "^2.28.2"
+gradientai = "^1.0.0.dev3"
+python-dotenv = "^1.0.0"
+datasets = "^2.14.4"
+
+[tool.poetry.dev-dependencies]
+autoflake = "2.0.1"
+black = "22.3.0"
+build = "0.10.0"
+flake8 = "6.0.0"
+Flake8-pyproject = "1.2.3"
+isort = "5.10.1"
+mypy = "1.3.0"
+pep8-naming = "0.13.0"
+pytest = "7.2.1"
+pytest-unordered = "0.5.2"
+twine = "4.0.2"
+types-requests = "2.28.11.17"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[tool.autoflake]
+check = true
+ignore-init-module-imports = true
+in-place = true
+recursive = true
+remove-all-unused-imports = true
+remove-unused-variables = true
+
+[tool.black]
+line-length = 80
+
+[tool.flake8]
+exclude = [".git", "__pycache__", ".mypy_cache", ".pytest_cache"]
+# https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
+extend-ignore = ["E203", "E501"]
+max-line-length = 88
+select = ["C","E","F","W","B","B950"]
+
+[tool.isort]
+profile = "black"
+
+# mypy options copied from https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_unimported = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+show_error_codes = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
